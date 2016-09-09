@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="frank.malo.mobiles.app.tareaformulario.DatosFormulario"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titulo_datos_formulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_datos_formulario"
+            android:textSize="@dimen/titulo_datos_formulario"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/margin_top_layout"/>
+
+        <TextView
+            android:id="@+id/tx_nombre_completo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_completo"
+            android:layout_marginTop="@dimen/margin_top_layout"
+            android:textSize="@dimen/datos_formulario"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_top_layout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/etiqueta_fecha_nacimiento"
+                android:textSize="@dimen/datos_formulario"/>
+
+            <TextView
+                android:id="@+id/tx_fecha_nacimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha_nacimiento"
+                android:textSize="@dimen/datos_formulario"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_top_layout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/etiqueta_telefono"
+                android:textSize="@dimen/datos_formulario"/>
+
+            <TextView
+                android:id="@+id/tx_telefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/telefono"
+                android:textSize="@dimen/datos_formulario"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_top_layout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/etiqueta_email"
+                android:textSize="@dimen/datos_formulario"/>
+
+            <TextView
+                android:id="@+id/tx_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textSize="@dimen/datos_formulario"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_top_layout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/etiqueta_descripcion"
+                android:textSize="@dimen/datos_formulario"/>
+
+            <TextView
+                android:id="@+id/tx_descripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descripcion"
+                android:textSize="@dimen/datos_formulario"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bnt_editar"
+            android:theme="@style/btnGuardar"
+            android:layout_marginTop="@dimen/margin_top_layout"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
