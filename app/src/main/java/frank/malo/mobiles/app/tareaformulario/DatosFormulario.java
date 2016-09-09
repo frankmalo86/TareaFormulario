@@ -21,6 +21,7 @@ public class DatosFormulario extends AppCompatActivity {
     TextView txDescripcion;
     TextView txFechaNacimiento;
 
+    //recupero los datos por medio del objeto Bundle y muestro en los TextView de la actividad
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +45,13 @@ public class DatosFormulario extends AppCompatActivity {
         txNombreCompleto.setText(nombre_completo);
         txTelefono.setText(telefono);
         txDescripcion.setText(descripcion);
+        //siempre seteo la fecha en el formato dd/MM/yyyy, para poder luego convertirla a Calendar.
         txFechaNacimiento.setText(dia+"/"+(mes+1)+"/"+anio);
         txEmail.setText(email);
 
         Button btn_editar = (Button)findViewById(R.id.btnEditar);
+
+        //Seteo el listener con el método de envio de datos
         btn_editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +61,7 @@ public class DatosFormulario extends AppCompatActivity {
 
     }
 
-
+    //método para enviar los datos para edición
     private void EnviarDatos(){
         String nombre_completo = txNombreCompleto.getText().toString();
         String telefono = txTelefono.getText().toString();
@@ -73,6 +77,7 @@ public class DatosFormulario extends AppCompatActivity {
         intent.putExtra(getResources().getString(R.string.pmail), email);
         intent.putExtra(getResources().getString(R.string.flag_editar), true);
 
+        //utilizo mi método para obtener un objeto calendar que me permita obtener el año, el mes y el día en datos tipo entero
         try {
             Calendar fecha = stringToCalendar(fecha_nacimiento);
             intent.putExtra(getResources().getString(R.string.panio), fecha.get(Calendar.YEAR));
@@ -87,9 +92,11 @@ public class DatosFormulario extends AppCompatActivity {
         }
 
         startActivity(intent);
+        //finalizo la actividad actual despues de regresar los datos a la actividad principal
         finish();
     }
 
+    //como destruí la actividad anterior, la vuelvo a iniciar cuando aprimo el botón de back
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK){
@@ -99,6 +106,8 @@ public class DatosFormulario extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    //método para convertir de un String a un objeto calendar con el objetivo de luego separar los dias,
+    //meses y años, siempre que el formato de la fecha sea dd/MM/yyyy
     private Calendar stringToCalendar (String fecha) throws ParseException {
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

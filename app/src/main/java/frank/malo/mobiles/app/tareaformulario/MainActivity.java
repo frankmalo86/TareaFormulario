@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //obtengo la referencia a los controles de usuario
         et_nombre = (EditText) findViewById(R.id.etNombreCompleto);
         et_telefono  = (EditText) findViewById(R.id.etTelefono);
         et_mail  = (EditText) findViewById(R.id.etEmail);
@@ -30,12 +31,14 @@ public class MainActivity extends AppCompatActivity {
         dp_fecha_nacimiento = (DatePicker) findViewById(R.id.dpFechaNacimiento);
 
         Bundle parametros = getIntent().getExtras();
+        //valido un parametro para saber si está en modo de edición
         try{
             editar = parametros.getBoolean(getResources().getString(R.string.flag_editar));
         }catch (NullPointerException ex){
             editar = false;
         }
 
+        //si es que estoy editando, seteo los valore recuperados en el Intent
         if (editar){
             String nombre = parametros.getString(getResources().getString(R.string.pnombre_completo));
             String telefono = parametros.getString(getResources().getString(R.string.ptelefono));
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    //método que está en el evento onclick del botón para enviar los datos que el usuario ingresa a la siguiente actividad
     public void EnviarDatos(View view){
         String nombre = et_nombre.getText().toString();
         String telefono = et_telefono.getText().toString();
